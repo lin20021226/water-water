@@ -140,7 +140,7 @@
     let composer;
 
     const fftSize = 2048;
-    const totalPoints = 4000;
+    const totalPoints = 10000;
 
     const listener = new THREE.AudioListener();
 
@@ -180,7 +180,7 @@
       value: new THREE.DataTexture(analyser.data, fftSize / 2, 1, format) };
 
 
-      addPlane(scene, uniforms, 3000);
+      addPlane(scene, uniforms, 6000);
       addSnow(scene, uniforms);
 
       range(10).map(i => {
@@ -339,9 +339,9 @@
       
        // 随机生成HSL值
        
-      const hue = rand(0, 1); // 色调在0到1之间随机
-      const saturation = rand(0.7, 1.0); // 饱和度在0.7到1.0之间随机，以确保颜色鲜艳
-      const lightness = rand(0.3, 0.7); // 亮度在0.3到0.7之间随机，以确保颜色不会太暗或太亮
+      const hue = rand(0, 0.9); // 色调在0到1之间随机
+      const saturation = rand(0.7, 0.9); // 饱和度在0.7到1.0之间随机，以确保颜色鲜艳
+      const lightness = rand(0.3, 0.6); // 亮度在0.3到0.7之间随机，以确保颜色不会太暗或太亮
 
       color.setHSL(hue, saturation, lightness);
 
@@ -436,7 +436,7 @@ geometry.setAttribute(
       }
       `;
       function createSnowSet(sprite) {
-       const totalPoints = 300;
+       const totalPoints = 600;
        const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
          ...uniforms,
